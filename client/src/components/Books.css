@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Plus&display=swap');
+
+img{
+    width: 200px;
+    height: 300px;
+}
+button{
+    padding: 5px;
+    margin: 10px;
+    border-radius: 10px;
+}
+.main{
+
+display: flex;
+background-color: aliceblue;
+}
+.main div{
+    padding: 20px;
+    flex-wrap: wrap;
+ 
+}
+#hide-form{
+    display: none;
+}
+button {
+    min-width: 130px;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px solid #57cc99;
+    background: #57cc99;
+}
+
