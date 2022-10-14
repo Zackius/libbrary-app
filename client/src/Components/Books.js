@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 
 import axios from "axios";
 import "./Books.css";
-import EditForm from "./EditForm";
 
 const Books = () => {
   const [books, setBooks] = useState([]);
@@ -61,8 +60,8 @@ const Books = () => {
               Delete
             </button>
             <div id="hide-form">
-              {editForm ? (
-                <EditForm />
+              {editForm? (
+                <editForm />
               ) : (
                 <button className="button" onClick={handleChanges}>
                   Edit
