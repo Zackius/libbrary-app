@@ -10,7 +10,7 @@ render json: book
     end
  def create 
     book = Book.create(book_params)
-    render json: book,   status: :created
+    render json:  book,   status: :created
  end 
     def index
         book = Book.all 
