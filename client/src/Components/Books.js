@@ -22,7 +22,7 @@ const Books = () => {
 
   function handleDelete(id) {
     if (window.confirm("Are you sure you want to delete this book?")) {
-      axios.delete(`http://127.0.0.1:3000/books/${id}`).then((response) => {
+      axios.delete(`/me${id}`).then((response) => {
         console.log(response.data);
         getAllBooks();
       });
@@ -34,7 +34,7 @@ const Books = () => {
   }, []);
   const getAllBooks = () => {
     axios
-      .get(" http://127.0.0.1:3000/books")
+      .get("http://127.0.0.1:3000/books")
       .then((resp) => {
         const allBooks = resp.data;
         setBooks(allBooks);
@@ -60,7 +60,7 @@ const Books = () => {
               Delete
             </button>
             <div id="hide-form">
-              {editForm? (
+              {editForm ? (
                 <editForm />
               ) : (
                 <button className="button" onClick={handleChanges}>
