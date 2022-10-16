@@ -4,7 +4,8 @@ import { Link, Navigate } from "react-router-dom";
 
 const SignIn = () => {
   const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+    const [password, setPassword] = useState("");
+    const { isFetching, error } = useSelector((state) => state.user);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -43,9 +44,10 @@ const SignIn = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button className="signinbutton" type="submit">
+        <button disabled={isFetching} className="signinbutton" type="submit">
           Login
-        </button>
+              </button>
+              {error && <Error>Something went wrong</Error>}
         <section>
           <p>Do you have an account?</p>
           <Link to="/signup">

@@ -29,7 +29,10 @@ const Add = () => {
         price: data.price,
       })
       .then((response) => {
-        console.log(response.data);
+          if (response.ok) {
+            console.log(response.data);
+          }
+           
       });
   }
 
