@@ -2,7 +2,8 @@ import "./App.css";
 import Navbar from "./Components/Navabar";
 import Books from "./Components/Books";
 import Add from "./Components/Add";
-import { Routes, Route } from "react-router-dom"
+import SignUp from "./Components/SignUp";
+import LandingPage from "./Components/LandingPage";
 
 function App() {
   // const [books, setBooks] = useState([])
@@ -23,12 +24,7 @@ function App() {
 
   return (
     <div>
-      <Navbar />
-      <Routes>
-        <Route path="books" element={<Books />} />
-        <Route path="add" element={<Add />} />
-      </Routes>
-      <h3>Welcome to Soma</h3>
+      <LandingPage />
     </div>
   );
 }

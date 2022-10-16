@@ -11,7 +11,7 @@ const Books = () => {
     if (e) {
       setEditForm(() => !editForm);
     }
-    fetch(`http://localhost:9292/books/${e.target.id}`, {
+    fetch(`http://127.0.0.1:3000/books/${e.target.id}`, {
       method: "PATCH",
       headers: {
         "Conteent-Type": "application/json",
@@ -22,7 +22,7 @@ const Books = () => {
 
   function handleDelete(id) {
     if (window.confirm("Are you sure you want to delete this book?")) {
-      axios.delete(`/me${id}`).then((response) => {
+      axios.delete(`http://127.0.0.1:3000/books/${id}`).then((response) => {
         console.log(response.data);
         getAllBooks();
       });
@@ -49,9 +49,10 @@ const Books = () => {
       {books.map((book) => {
         return (
           <div key={book.id}>
-            <img src={book.book_image} alt="book" />
-            <h4> Book Name :{book.books_name}</h4>
+            <img src={book.image} alt="book" />
+            <h4> Book Name :{book.title}</h4>
             <h5> Author :{book.author} </h5>
+            <p>{book.description }</p>
             <button
               onClick={() => {
                 handleDelete(book.id);

@@ -6,9 +6,12 @@
         font-size: 20px;
 }
 .navbar{
-    background-color:rgb(138, 138, 137);
+    background-color:rgb(12, 139, 250);
     height: 50px;
   padding: 20px;
+} 
+.logo{
+    color: rgb(0, 0, 0);
 }
 .nav-link{
     padding-left: 600px;

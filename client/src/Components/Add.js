@@ -22,7 +22,7 @@ const Add = () => {
   function submit(e) {
     e.preventDefault();
     axios.post(" http://127.0.0.1:3000/books", {
-        title: data.books_title,
+        title: data.title,
         description: data.description,
         image: data.book_image,
         author: data.author,
@@ -42,11 +42,11 @@ const Add = () => {
             <input
               className="gap"
               onChange={(e) => handle(e)}
-              id="books_name"
-              value={data.books_title}
-              placeholder="books_name"
+              id="title"
+              value={data.title}
+              placeholder="Book Title"
               type="text"
-              name="books_name"
+              name="books_title"
             />
           </label>
           <label>
