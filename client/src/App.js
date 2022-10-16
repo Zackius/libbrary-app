@@ -1,8 +1,4 @@
 import "./App.css";
-import Navbar from "./Components/Navabar";
-import Books from "./Components/Books";
-import Add from "./Components/Add";
-import SignUp from "./Components/SignUp";
 import LandingPage from "./Components/LandingPage";
 
 function App() {

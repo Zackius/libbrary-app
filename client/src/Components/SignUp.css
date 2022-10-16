@@ -1,0 +1,20 @@
+.signUp{
+padding-left: 300px;
+margin:300px
+}
+.signUp input{
+    display: block;
+    padding-left: 120px;
+    margin-left: 90px;
+}
+.singupbutton{
+    font-size: 15px;
+    padding: 15px;
+       background-color: aqua;
+   border-radius: 16px;
+   align-items: center;
+}
+body{
+    background-image: linear-gradient(to right, rgba(198, 245, 245), rgb(124, 138, 139));
+
+}

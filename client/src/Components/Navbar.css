@@ -5,14 +5,28 @@
     font-weight: 700;
         font-size: 20px;
 }
+span {
+    color: green;
+    font-size: 30px;
+}
+h3{
+    font-weight: 600;
+    
+}
+.navbutton{
+    background-color: aqua;
+    color: black;
+    font-size: 15px;
+    margin: 20px;
+    border-radius: 16px;
+    float: right;
+
+}
 .navbar{
-    background-color:rgb(12, 139, 250);
-    height: 50px;
+    background-color:rgb(251, 252, 253);
+    height: 70px;
   padding: 20px;
 } 
-.logo{
-    color: rgb(0, 0, 0);
-}
 .nav-link{
     padding-left: 600px;
     color: black;

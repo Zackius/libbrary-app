@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from "react";
+import "./SignIn.css";
 
 const SignIn = () => {
-
-    const [username, setUsername] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -11,21 +12,34 @@ const SignIn = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username }),
+      body: JSON.stringify({
+        username,
+        password
+      }),
     })
       .then((r) => r.json())
-      .then((user) => onLogin(user));
+      .then((user) => user);
   }
   return (
-    <form onSubmit={handleSubmit}>
-    <input
-      type="text"
-      value={username}
-      onChange={(e) => setUsername(e.target.value)}
-    />
-    <button type="submit">Login</button>
-  </form>
-  )
-}
+    <div className="signIn">
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="username">Username:</label>
+        <input
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
 
-export default SignIn
+        <label htmlFor="password">Password:</label>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button className="signinbutton" type="submit">Login</button>
+      </form>
+    </div>
+  );
+};
+
+export default SignIn;
