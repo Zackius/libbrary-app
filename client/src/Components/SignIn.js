@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./SignIn.css";
+import { Link, Navigate } from "react-router-dom";
 
 const SignIn = () => {
   const [username, setUsername] = useState("");
@@ -14,14 +15,20 @@ const SignIn = () => {
       },
       body: JSON.stringify({
         username,
-        password
+        password,
       }),
-    })
-      .then((r) => r.json())
-      .then((user) => user);
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((user) =>(user));
+        return  <Navigate replace="/landingpage" />;
+      } else {
+        r.json().then((errorData) => errorData.errors);
+      }
+    });
   }
   return (
     <div className="signIn">
+      <h3>Welcome Back</h3>
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">Username:</label>
         <input
@@ -36,7 +43,15 @@ const SignIn = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button className="signinbutton" type="submit">Login</button>
+        <button className="signinbutton" type="submit">
+          Login
+        </button>
+        <section>
+          <p>Do you have an account?</p>
+          <Link to="/signup">
+            <h5>Register an Account to access free materials</h5>
+          </Link>
+        </section>
       </form>
     </div>
   );

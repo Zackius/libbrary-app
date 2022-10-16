@@ -21,6 +21,16 @@ const Navbar = () => {
           SignUp
         </NavLink>
       </button>
+      <button className="leftbutton">
+        <NavLink className="navLinks" to="/books">
+          Books
+        </NavLink>
+      </button>
+      <button className="leftbutton">
+        <NavLink className="navLinks" to="/add">
+          Add Books
+        </NavLink>
+      </button>
     </nav>
   );
 };

@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "./SignUp.css";
+import { Link } from "react-router-dom";
 
-const SignUp = () => {
+
+const SignUp = ({ onLogin }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-    const [passwordConfirmation, setPasswordConfirmation] = useState("");
-    const[isOpen, setIsOpen] = useState(false)
+  const [passwordConfirmation, setPasswordConfirmation] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -19,11 +20,11 @@ const SignUp = () => {
         username,
         email,
         password,
-        passwordConfirmation
+        passwordConfirmation,
       }),
     })
       .then((r) => r.json())
-      .then();
+      .then(onLogin);
   }
   return (
     <div className="signUp">
@@ -60,6 +61,12 @@ const SignUp = () => {
         <button className="signupbutton" type="submit">
           Submit
         </button>
+        <section>
+          <p>All ready sign up?</p>
+          <Link to="/signin">
+            <h5>Login</h5>
+          </Link>
+        </section>
       </form>
     </div>
   );

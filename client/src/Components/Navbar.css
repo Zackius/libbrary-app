@@ -17,10 +17,18 @@ h3{
     background-color: aqua;
     color: black;
     font-size: 15px;
-    margin: 20px;
+    margin: 5px;
     border-radius: 16px;
     float: right;
 
+}
+.leftbutton{
+    background-color: aqua;
+    color: black;
+    font-size: 15px;
+    margin: 5px;
+    border-radius: 16px;
+    float: leftt;
 }
 .navbar{
     background-color:rgb(251, 252, 253);

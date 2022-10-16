@@ -45,7 +45,10 @@ params.permit(:title, :description,  :image,  :author,  :price)
         render json: {error: "Book not found"},  status: :not_found
     end
 
-    def authorize
-return render json: {error:  "Not authorized"}, status:  :unauthorized
+#     def authorize
+# return render json: {error:  "Not authorized"}, status:  :unauthorized
+#     end
+    def authorized
+        render json: {message: "You have to log in."}, status: :unauthorized unless authorize_user
     end
 end

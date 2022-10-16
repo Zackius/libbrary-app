@@ -1,5 +1,10 @@
 import "./App.css";
-import LandingPage from "./Components/LandingPage";
+import Navbar from "./Components/Navabar";
+import SignUp from "./Components/SignUp";
+import SignIn from "./Components/SignIn";
+import Books from "./Components/Books";
+import Add from "./Components/Add";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   // const [books, setBooks] = useState([])
@@ -20,7 +25,13 @@ function App() {
 
   return (
     <div>
-      <LandingPage />
+      <Navbar />
+      <Routes className="nav-link">
+        <Route path="signIn" element={<SignIn />} />
+        <Route path="SignUp" element={<SignUp />} />
+        <Route path="Books" element={<Books />} />
+        <Route path="Add" element={<Add />} />
+      </Routes>
     </div>
   );
 }

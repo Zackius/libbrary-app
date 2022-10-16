@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Gentium+Plus&display=swap');
 
+
 img{
     width: 200px;
     height: 300px;
@@ -12,11 +13,14 @@ button{
 .main{
 
 display: flex;
-background-color: aliceblue;
+margin: 100px;
+
 }
 .main div{
     padding: 20px;
     flex-wrap: wrap;
+    width:550px;
+    height:400px ;
  
 }
 #hide-form{
@@ -37,4 +41,5 @@ button {
     border: 2px solid #57cc99;
     background: #57cc99;
 }
+
 

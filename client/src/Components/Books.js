@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./Books.css"
 
 import axios from "axios";
 import "./Books.css";
@@ -6,6 +7,11 @@ import "./Books.css";
 const Books = () => {
   const [books, setBooks] = useState([]);
   const [editForm, setEditForm] = useState(false);
+  const [isShown, setIsShown] = useState(false)
+  
+  function handleClick() {
+    setIsShown(current => !current)
+  }
 
   function handleChanges(e, id) {
     if (e) {
@@ -45,35 +51,48 @@ const Books = () => {
   };
 
   return (
-    <section className="main">
+    <section className="main" onClick={handleClick}>
       {books.map((book) => {
-        return (
-          <div key={book.id}>
-            <img src={book.image} alt="book" />
-            <h4> Book Name :{book.title}</h4>
-            <h5> Author :{book.author} </h5>
-            <p>{book.description}</p>
-            <button
-              onClick={() => {
-                handleDelete(book.id);
-              }}
-            >
-              Delete
-            </button>
-            <div id="hide-form">
-              {editForm ? (
-                <editForm />
-              ) : (
-                <button className="button" onClick={handleChanges}>
-                  Edit
-                </button>
-              )}
-            </div>
-          </div>
-        );
-      })}
-    </section>
-  );
-};
+        {
+          isShown && (
+            (
+              <div key={book.id} className="flex-container">
+                <div className="selves">
+                  <img src={book.image} alt="book" />
+                  <h4> Book Name :{book.title}</h4>
+                  <h5> Author :{book.author} </h5>
+                  <p className="descrip">{book.description}</p>
+                  <button
+                    onClick={() => {
+                      handleDelete(book.id);
+                    }}
+                  >
+                    Delete
+                  </button>
+                </div>
+          
+        }
+       
+
+         
+            
+
+            
+         
+        
+            
+            
+                <div id="hide-form">
+                  {editForm ? (
+                    <editForm />
+                  ) : (
+                    <button className="button" onClick={handleChanges}>
+                      Edit
+                    </button>
+                  )}
+                </div>
+              </div>
+            )
+      
 
 export default Books;
