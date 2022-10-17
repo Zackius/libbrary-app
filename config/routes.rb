@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   
   post "/register", to: "sessions#register"
   post  "/login", to: "sessions#login"
+  
+  get "/me", to: "users#show"
 
 end

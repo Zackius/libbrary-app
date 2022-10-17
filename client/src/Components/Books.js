@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import "./Books.css"
+import "./Books.css";
+// import { Link } from "react-router-dom";
 
 import axios from "axios";
 import "./Books.css";
@@ -8,7 +9,7 @@ const Books = () => {
   const [books, setBooks] = useState([]);
   const [editForm, setEditForm] = useState(false);
   // const [isShown, setIsShown] = useState(false)
-  
+
   // function handleClick(event) {
   //   setIsShown(current => !current)
   // }
@@ -26,14 +27,14 @@ const Books = () => {
     }).then((resp) => resp.json());
   }
 
-  function handleDelete(id) {
-    if (window.confirm("Are you sure you want to delete this book?")) {
-      axios.delete(`http://127.0.0.1:3000/books/${id}`).then((response) => {
-        console.log(response.data);
-        getAllBooks();
-      });
-    }
-  }
+  // function handleDelete(id) {
+  //   if (window.confirm("Are you sure you want to delete this book?")) {
+  //     axios.delete(`http://127.0.0.1:3000/books/${id}`).then((response) => {
+  //       console.log(response.data);
+  //       getAllBooks();
+  //     });
+  //   }
+  // }
 
   useEffect(() => {
     getAllBooks();
@@ -44,6 +45,7 @@ const Books = () => {
       .then((resp) => {
         const allBooks = resp.data;
         setBooks(allBooks);
+        window.location = "/books";
       })
       .catch((err) => {
         console.log(err.resp);
@@ -54,27 +56,14 @@ const Books = () => {
     <section className="main">
       {books.map((book) => {
         return (
-          <div key={book.id}  className ="flex-container">
+          <div key={book.id} className="flex-container">
             <div className="selves">
-            <img src={book.image} alt="book" />
+              <img src={book.image} alt="book" />
               <h4> Book Name :{book.title}</h4>
               <h5> Author :{book.author} </h5>
               <p className="descrip">{book.description}</p>
-              <button
-                onClick={() => {
-                  handleDelete(book.id);
-                }}
-              >
-                Delete
-                </button>
             </div>
-            
 
-            
-         
-        
-            
-            
             <div id="hide-form">
               {editForm ? (
                 <editForm />
@@ -87,6 +76,7 @@ const Books = () => {
           </div>
         );
       })}
+    
     </section>
   );
 };

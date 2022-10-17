@@ -3,33 +3,43 @@ import "./SignUp.css";
 import { Link } from "react-router-dom";
 
 
-const SignUp = ({ onLogin }) => {
+const SignUp = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
 
-  function handleSubmit(e) {
+  
+  const [errors, setErrors] = useState([]);
+
+  async function handleSubmit(e) {
     e.preventDefault();
-    fetch("/register", {
+
+    const formData = {
+      username,
+      email,
+      password,
+      passwordConfirmation,
+    }
+    const resp = await fetch("/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        username,
-        email,
-        password,
-        passwordConfirmation,
-      }),
+      body: JSON.stringify(formData),
     })
-      .then((r) => r.json())
-      .then(onLogin);
+   
+    const data = await resp.json()
+    if (resp.ok) {
+      window.location = "/signin"
+    } else {
+      setErrors(data.errors)
+    }
   }
   return (
     <div className="signUp">
       <h3>Sign Up here </h3>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={(e) =>handleSubmit(e)}>
         <label htmlFor="username">Username:</label>
         <input
           type="text"
@@ -66,6 +76,15 @@ const SignUp = ({ onLogin }) => {
           <Link to="/signin">
             <h5>Login</h5>
           </Link>
+
+          {errors.length > 0 && (
+            <ul style={{ color: "red" }}>
+              {errors.map((error) => (
+                <li key={error}>{error}</li>
+              ))}
+            </ul>
+          )}
+
         </section>
       </form>
     </div>

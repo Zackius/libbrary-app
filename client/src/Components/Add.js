@@ -3,7 +3,7 @@ import axios from "axios";
 import "./Add.css";
 import { useState } from "react";
 
-const Add = () => {
+const Add = ({ user }) => {
   const [data, setData] = useState({
     title: "",
     description: "",
@@ -21,7 +21,9 @@ const Add = () => {
 
   function submit(e) {
     e.preventDefault();
-    axios.post(" http://127.0.0.1:3000/books", {
+
+    axios
+      .post(" http://127.0.0.1:3000/books", {
         title: data.title,
         description: data.description,
         image: data.book_image,
@@ -29,10 +31,9 @@ const Add = () => {
         price: data.price,
       })
       .then((response) => {
-          if (response.ok) {
-            console.log(response.data);
-          }
-           
+        if (response.ok) {
+          console.log(response.data);
+        }
       });
   }
 

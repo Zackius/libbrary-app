@@ -8,6 +8,10 @@ else
     render json: {errors: user.errors.full_messages}, status:  :unprocessable_entity
     end
 end
+def index
+user = User.all
+render json: user;
+end
 
     def show 
 user = User.find_by(id: session[:user_id])
